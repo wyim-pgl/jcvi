@@ -827,7 +827,7 @@ def refine(args):
         sys.exit(not p.print_help())
 
     breakpointsbed, gapsbed = args
-    ncols = len(next(open(breakpointsbed)).split())
+    ncols = len(next(open(breakpointsbed), '').split()) if next(open(breakpointsbed), '') else 0
     logging.debug("File %s contains %d columns.", breakpointsbed, ncols)
     a = BedTool(breakpointsbed)
     b = BedTool(gapsbed)
